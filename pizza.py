@@ -11,6 +11,7 @@ time= input('Укажите время: ')
 c= input('Укажите контактные данные: ')
 print('Пиццы в наличии:')
 pprint.pprint(P)
+D=dict()
 while True:
     pizza=input('Укажите пиццу для заказа или "выход" для окончания ввода: ')
     if pizza=='выход':
@@ -22,7 +23,6 @@ while True:
         choose_size=input('Укажите размер пиццы (S или M)')
         price=int(P[pizza.upper()]['size'][choose_size])
         k=int(input('Укажите количество: '))
-        D=dict()
         D['pizza_order']={'count':k,'pizza':pizza.upper(),'size':choose_size,'tm':time, 'Price': k*price}
         L.append(price)
         K.append(k)
