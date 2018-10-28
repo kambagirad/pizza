@@ -12,22 +12,24 @@ c= input('Укажите контактные данные: ')
 print('Пиццы в наличии:')
 pprint.pprint(P)
 D=dict()
+L=[]
+K=[]
+i=0
 while True:
     pizza=input('Укажите пиццу для заказа или "выход" для окончания ввода: ')
     if pizza=='выход':
         print('Всего доброго! До свидания!')
         break
     elif pizza.upper() in P:
-        L=[]
-        K=[]
         choose_size=input('Укажите размер пиццы (S или M)')
-        price=int(P[pizza.upper()]['size'][choose_size])
+        price=int(P[pizza.upper()]['size'][choose_size.upper()])
         k=int(input('Укажите количество: '))
-        D['pizza_order']={'count':k,'pizza':pizza.upper(),'size':choose_size,'tm':time, 'Price': k*price}
+        D[i]={'count':k,'pizza':pizza.upper(),'size':choose_size.upper(),'tm':time, 'Price': k*price}
         L.append(price)
         K.append(k)
     else:
         continue
+    i+=1
 p=0    
 for i in range(len(L)):
     p+=L[i]*K[i]
